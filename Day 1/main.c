@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/stat.h>
 
 #define MAX_CHARS 9
-#define ARRAY_LEN(arr) (size_t)(sizeof((size_t)arr)/sizeof((size_t)(arr)[0]))
 
 int main(int argc, char *argv[]) {
 
