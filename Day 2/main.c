@@ -25,20 +25,21 @@ int main(int argc, char *argv[]) {
   }
 
   char chunk[MAX_CHUNK_SIZE + 1];
-  int hPos = 0, vPos = 0;
+  int hPos = 0, vPos = 0, aim = 0;
   while(fgets(chunk, sizeof(chunk), input_file))
   {
     char* direction = strtok( (char*) chunk, STRING_SEPERATOR );
     int hPosChange = 0, vPosChange = 0;
     char* nptr;
     if(strcmp(direction, "forward") == 0){
-      hPosChange = strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
-      printf("%s:+%d\t%d\n", direction, hPosChange, hPos);
+      int x = strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
+      hPosChange = x;
+      vPosChange = x * aim;
     } else if(strcmp(direction, "up"))
     {
-      vPosChange = strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
-    } else {
-      vPosChange = -strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
+      aim += strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
+    } else { // Down
+      aim += -strtol(strtok(NULL, STRING_SEPERATOR), &nptr, 10);
     }
     hPos += hPosChange;
     vPos += vPosChange;
