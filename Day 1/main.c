@@ -3,8 +3,6 @@
 
 #define MAX_CHARS 9
 
-void handleData(char* buffer);
-
 int main(int argc, char *argv[]) {
   if (argc != 2) {
     printf("Usage: %s <filename>", argv[0]);
